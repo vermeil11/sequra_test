@@ -1,15 +1,21 @@
-Welcome to your new dbt project!
+Here are the test results for the analytics engineer position at SeQura.
 
-### Using the starter project
+--------------------------------------------------------------------------------------------
+I created a Snowflake trial account to store the data for part 1.
+You can check the data using the following reader account:
 
-Try running the following commands:
-- dbt run
-- dbt test
+https://ayjjdhk-sequra_test.snowflakecomputing.com
 
+Username: ADMIN
+Password: Sequra123
+You can query the table using the worksheet 'SETUP'
+--------------------------------------------------------------------------------------------
+I created a trial DBT Cloud account to gather all the SQL queries and organize the transformations, you can see the models and work here.
+--------------------------------------------------------------------------------------------
+I had a few questions:
+- Why is a customer considered recurring if he makes two purchases from the same merchant in the same month? It could be a case of two successive orders that don't demonstrate loyalty.
+- Why isn't the default rate requested on the output of part 2?
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [dbt community](https://getdbt.com/community) to learn from other analytics engineers
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+I did my best and look forward to meeting you at a future meeting.
+
+Maxime Rosa
