@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: analytics_hub
+    database: SEQURA_TEST  
+    schema: ANALYTICS  
+    tables:
+      - name: orders_merchant
+      - name: merchant_name
+
+  - name: public_hub
+    database: SEQURA_TEST  
+    schema: PUBLIC  
+    tables:
+      - name: orders_merchant
+      - name: merchant_name
