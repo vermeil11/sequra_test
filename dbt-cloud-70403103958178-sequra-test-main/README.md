@@ -1,7 +1,7 @@
 Here are the test results for the analytics engineer position at SeQura.
 
 --------------------------------------------------------------------------------------------
-I created a Snowflake trial account to store the data for part 1.
+I created a Snowflake trial account to store and test the data for part 1.
 You can check the data using the following reader account:
 
 https://ayjjdhk-sequra_test.snowflakecomputing.com
