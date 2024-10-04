@@ -7,7 +7,7 @@ with loans as (
         merchant_id,
         product_id,
         -- Here we convert order_date to the desired format
-        TO_CHAR(order_date, 'YYYY-MM') as month_year_order,
+        to_char(order_date, 'YYYY-MM') as month_year_order,
         current_order_value,
     case
         when days_unbalanced between 1 and 17 or days_unbalanced = 35 then '17'

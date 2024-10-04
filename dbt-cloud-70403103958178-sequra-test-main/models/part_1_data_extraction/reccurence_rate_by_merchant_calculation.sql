@@ -5,7 +5,7 @@ with monthly_shoppers as (
     select
         o.merchant_id,
         m.merchant_name,
-        DATE_TRUNC('month', o.order_date) as month,
+        date_trunc('month', o.order_date) as month,
         count(distinct o.shopper_id) as total_shoppers
     from {{ ref('orders_merchant_STG') }} o
     join {{ ref('merchant_name_STG') }} m ON o.merchant_id = m.merchant_id
@@ -18,7 +18,7 @@ recurring_shoppers as (
 select
     o1.merchant_id,
     m.merchant_name,
-    DATE_TRUNC('month', o1.order_date) as month,
+    date_trunc('month', o1.order_date) as month,
     count(distinct o1.shopper_id) as recurring_shoppers
 from {{ ref('orders_merchant_STG') }} o1
 -- Self join to compare with previous data and isolate the shoppers that already made a purchase with the same shop or made several purchases in the same month and with the same merchant

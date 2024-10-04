@@ -10,7 +10,7 @@ with overdue_calculation as (
         b.default_type,
         days_unbalanced,
         -- Here we convert order_date to the desired format
-        TO_CHAR(order_date, 'YYYY-MM') as month_year_order,
+        to_char(order_date, 'YYYY-MM') as month_year_order,
         current_order_value,
         -- Summing all overdue fields to calculate the debt amount
         overdue_principal + overdue_interest + overdue_fees as total_debt,
