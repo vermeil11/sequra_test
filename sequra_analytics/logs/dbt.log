@@ -1,0 +1,14 @@
+[0m17:13:59.867014 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1061e2210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1074154f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1074152b0>]}
+
+
+============================== 17:13:59.870682 | e218b52a-bec3-40db-a284-8e69b66ce787 ==============================
+[0m17:13:59.870682 [info ] [MainThread]: Running with dbt=1.10.9
+[0m17:13:59.871042 [debug] [MainThread]: running dbt with arguments {'log_path': '/Users/maximerosa/Downloads/sequra_test/sequra_analytics/logs', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'static_parser': 'True', 'indirect_selection': 'eager', 'write_json': 'True', 'use_experimental_parser': 'False', 'fail_fast': 'False', 'cache_selected_only': 'False', 'quiet': 'False', 'use_colors': 'True', 'debug': 'False', 'printer_width': '80', 'version_check': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'log_format': 'default', 'target_path': 'None', 'warn_error': 'None', 'profiles_dir': '/Users/maximerosa/Downloads/sequra_test/sequra_analytics', 'invocation_command': 'dbt deps', 'introspect': 'True'}
+[0m17:13:59.959424 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e218b52a-bec3-40db-a284-8e69b66ce787', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1071ff4a0>]}
+[0m17:13:59.987940 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m17:13:59.988453 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m17:13:59.990171 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 0.1776645, "process_in_blocks": "0", "process_kernel_time": 0.166591, "process_mem_max_rss": "108691456", "process_out_blocks": "0", "process_user_time": 0.806054}
+[0m17:13:59.990460 [debug] [MainThread]: Command `dbt deps` succeeded at 17:13:59.990404 after 0.18 seconds
+[0m17:13:59.990658 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10722cce0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1072f9580>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107684f80>]}
+[0m17:13:59.990837 [debug] [MainThread]: Flushing usage events
+[0m17:14:00.423865 [debug] [MainThread]: An error was encountered while trying to flush usage events

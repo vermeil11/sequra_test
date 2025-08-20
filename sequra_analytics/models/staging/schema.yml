@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: Staging layer for orders data
+    columns:
+      - name: order_id
+        description: Unique identifier for each order
+        tests:
+          - unique
+          - not_null
+      - name: shopper_id
+        description: Identifier for the shopper
+        tests:
+          - not_null
+      - name: merchant_id
+        description: Identifier for the merchant
+        tests:
+          - not_null
+      - name: order_date
+        description: Date when the order was placed
+        tests:
+          - not_null
+
+  - name: stg_merchants
+    description: Staging layer for merchant data
+    columns:
+      - name: merchant_id
+        description: Unique identifier for each merchant
+        tests:
+          - unique
+          - not_null
+      - name: merchant_name
+        description: Name of the merchant
+        tests:
+          - not_null

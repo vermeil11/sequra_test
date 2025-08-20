@@ -1,0 +1,14 @@
+sequra_analytics:
+  outputs:
+    dev:
+      type: snowflake
+      account: lqgtqud-rv87386
+      user: maximerosa
+      password: Sequratest123!
+      role: ACCOUNTADMIN
+      database: SEQURA_DEV
+      warehouse: COMPUTE_WH
+      schema: dbt_maximerosa
+      threads: 4
+      client_session_keep_alive: False
+  target: dev

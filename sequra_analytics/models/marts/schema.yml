@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: shopper_recurrence_rate
+    description: Final table with shopper recurrence rate by month and merchant
+    columns:
+      - name: merchant_name
+        description: Name of the merchant
+        tests:
+          - not_null
+      - name: month
+        description: Month in YYYY-MM format
+        tests:
+          - not_null
+      - name: recurrence_rate
+        description: Percentage of recurrent shoppers (0-100)
+        tests:
+          - not_null
+          
+  - name: default_ratio_analysis
+    description: Default ratio analysis by various dimensions (Part 2)

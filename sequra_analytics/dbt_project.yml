@@ -1,0 +1,39 @@
+name: 'sequra_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'sequra_analytics'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  sequra_analytics:
+    staging:
+      materialized: view
+      schema: staging
+    intermediate:
+      materialized: view
+      schema: intermediate
+    marts:
+      materialized: table
+      schema: marts
+
+seeds:
+  sequra_analytics:
+    schema: raw_data
+    orders_merchant:
+      column_types:
+        order_id: integer
+        shopper_id: integer
+        merchant_id: integer
+        order_date: varchar

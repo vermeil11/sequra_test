@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: int_monthly_shoppers
+    description: All shoppers who made purchases by month and merchant
+    
+  - name: int_recurrent_shoppers
+    description: Shoppers who are considered recurrent based on purchase history
+    
+  - name: int_orders_with_defaults
+    description: Orders enriched with default information (for Part 2)
