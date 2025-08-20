@@ -1,8 +1,4 @@
-{{
-    config(
-        materialized='table'
-    )
-}}
+
 
 -- This model calculates the default ratio as requested in Part 2
 
@@ -18,8 +14,8 @@ with orders_with_defaults as (
         null::integer as days_unbalanced,
         null::decimal(15,2) as current_order_value,
         null::decimal(15,2) as overdue_amount
-    from {{ ref('stg_orders') }} o
-    left join {{ ref('stg_merchants') }} m
+    from SEQURA_DEV.dbt_maximerosa_staging.stg_orders o
+    left join SEQURA_DEV.dbt_maximerosa_staging.stg_merchants m
         on o.merchant_id = m.merchant_id
 ),
 
