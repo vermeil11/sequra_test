@@ -2337,3 +2337,494 @@ order by merchant_name, month
 [0m17:30:31.472778 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108d0d5b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109dca720>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a0863f0>]}
 [0m17:30:31.472972 [debug] [MainThread]: Flushing usage events
 [0m17:30:31.944656 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:43:34.018623 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104ea4bc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1033ceae0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10540d700>]}
+
+
+============================== 17:43:34.023827 | e822fa22-87ae-4f90-9a89-17ff575b837e ==============================
+[0m17:43:34.023827 [info ] [MainThread]: Running with dbt=1.10.9
+[0m17:43:34.024307 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'quiet': 'False', 'log_format': 'default', 'partial_parse': 'True', 'log_cache_events': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'use_experimental_parser': 'False', 'invocation_command': 'dbt run', 'log_path': '/Users/maximerosa/Downloads/sequra_test/sequra_analytics/logs', 'no_print': 'None', 'use_colors': 'True', 'warn_error': 'None', 'empty': 'False', 'version_check': 'True', 'write_json': 'True', 'static_parser': 'True', 'target_path': 'None', 'send_anonymous_usage_stats': 'True', 'profiles_dir': '/Users/maximerosa/Downloads/sequra_test/sequra_analytics', 'indirect_selection': 'eager', 'printer_width': '80'}
+[0m17:43:34.444733 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e822fa22-87ae-4f90-9a89-17ff575b837e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102a57f20>]}
+[0m17:43:34.476610 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'e822fa22-87ae-4f90-9a89-17ff575b837e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1056aa9f0>]}
+[0m17:43:34.478188 [info ] [MainThread]: Registered adapter: snowflake=1.10.0
+[0m17:43:34.558825 [debug] [MainThread]: checksum: 6543b8b248ceda473ef0d611849d5d909085b6b714afa9b515e9635faea7af23, vars: {}, profile: , target: , version: 1.10.9
+[0m17:43:34.712758 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m17:43:34.713029 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m17:43:34.716419 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- seeds.sequra_analytics.orders_merchant.column_types
+[0m17:43:34.739415 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'e822fa22-87ae-4f90-9a89-17ff575b837e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1053c4b90>]}
+[0m17:43:34.784400 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/maximerosa/Downloads/sequra_test/sequra_analytics/target/manifest.json
+[0m17:43:34.786942 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/maximerosa/Downloads/sequra_test/sequra_analytics/target/semantic_manifest.json
+[0m17:43:34.804722 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'e822fa22-87ae-4f90-9a89-17ff575b837e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110082600>]}
+[0m17:43:34.805051 [info ] [MainThread]: Found 7 models, 2 seeds, 11 data tests, 479 macros
+[0m17:43:34.805319 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e822fa22-87ae-4f90-9a89-17ff575b837e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104df5c70>]}
+[0m17:43:34.806462 [info ] [MainThread]: 
+[0m17:43:34.806655 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m17:43:34.806798 [info ] [MainThread]: 
+[0m17:43:34.807053 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m17:43:34.809642 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SEQURA_DEV'
+[0m17:43:34.810881 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SEQURA_DEV'
+[0m17:43:34.811220 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SEQURA_DEV'
+[0m17:43:34.901982 [debug] [ThreadPool]: Using snowflake connection "list_SEQURA_DEV"
+[0m17:43:34.902332 [debug] [ThreadPool]: Using snowflake connection "list_SEQURA_DEV"
+[0m17:43:34.902563 [debug] [ThreadPool]: Using snowflake connection "list_SEQURA_DEV"
+[0m17:43:34.902744 [debug] [ThreadPool]: On list_SEQURA_DEV: show terse schemas in database SEQURA_DEV
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "connection_name": "list_SEQURA_DEV"} */
+[0m17:43:34.902914 [debug] [ThreadPool]: On list_SEQURA_DEV: show terse schemas in database SEQURA_DEV
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "connection_name": "list_SEQURA_DEV"} */
+[0m17:43:34.903069 [debug] [ThreadPool]: On list_SEQURA_DEV: show terse schemas in database SEQURA_DEV
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "connection_name": "list_SEQURA_DEV"} */
+[0m17:43:34.903212 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:43:34.903341 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:43:34.903468 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:43:37.592195 [debug] [ThreadPool]: SQL status: SUCCESS 6 in 2.689 seconds
+[0m17:43:37.598201 [debug] [ThreadPool]: SQL status: SUCCESS 6 in 2.695 seconds
+[0m17:43:37.631716 [debug] [ThreadPool]: SQL status: SUCCESS 6 in 2.728 seconds
+[0m17:43:37.633551 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_SEQURA_DEV, now list_SEQURA_DEV_dbt_maximerosa_staging)
+[0m17:43:37.633900 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_SEQURA_DEV, now list_SEQURA_DEV_dbt_maximerosa_intermediate)
+[0m17:43:37.640068 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_SEQURA_DEV, now list_SEQURA_DEV_dbt_maximerosa_marts)
+[0m17:43:37.641487 [debug] [ThreadPool]: Using snowflake connection "list_SEQURA_DEV_dbt_maximerosa_staging"
+[0m17:43:37.641792 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SEQURA_DEV_dbt_maximerosa_raw_data'
+[0m17:43:37.642990 [debug] [ThreadPool]: Using snowflake connection "list_SEQURA_DEV_dbt_maximerosa_intermediate"
+[0m17:43:37.644280 [debug] [ThreadPool]: Using snowflake connection "list_SEQURA_DEV_dbt_maximerosa_marts"
+[0m17:43:37.644491 [debug] [ThreadPool]: On list_SEQURA_DEV_dbt_maximerosa_staging: show objects in SEQURA_DEV.dbt_maximerosa_staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "connection_name": "list_SEQURA_DEV_dbt_maximerosa_staging"} */;
+[0m17:43:37.645712 [debug] [ThreadPool]: Using snowflake connection "list_SEQURA_DEV_dbt_maximerosa_raw_data"
+[0m17:43:37.645932 [debug] [ThreadPool]: On list_SEQURA_DEV_dbt_maximerosa_intermediate: show objects in SEQURA_DEV.dbt_maximerosa_intermediate
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "connection_name": "list_SEQURA_DEV_dbt_maximerosa_intermediate"} */;
+[0m17:43:37.646083 [debug] [ThreadPool]: On list_SEQURA_DEV_dbt_maximerosa_marts: show objects in SEQURA_DEV.dbt_maximerosa_marts
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "connection_name": "list_SEQURA_DEV_dbt_maximerosa_marts"} */;
+[0m17:43:37.646835 [debug] [ThreadPool]: On list_SEQURA_DEV_dbt_maximerosa_raw_data: show objects in SEQURA_DEV.dbt_maximerosa_raw_data
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "connection_name": "list_SEQURA_DEV_dbt_maximerosa_raw_data"} */;
+[0m17:43:37.647204 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:43:37.747462 [debug] [ThreadPool]: SQL status: SUCCESS 3 in 0.100 seconds
+[0m17:43:37.749292 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 0.102 seconds
+[0m17:43:37.750848 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 0.105 seconds
+[0m17:43:39.967186 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 2.320 seconds
+[0m17:43:39.970957 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e822fa22-87ae-4f90-9a89-17ff575b837e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110198140>]}
+[0m17:43:39.973913 [debug] [Thread-1 (]: Began running node model.sequra_analytics.stg_merchants
+[0m17:43:39.974540 [debug] [Thread-2 (]: Began running node model.sequra_analytics.stg_orders
+[0m17:43:39.974301 [info ] [Thread-1 (]: 1 of 7 START sql view model dbt_maximerosa_staging.stg_merchants ............... [RUN]
+[0m17:43:39.974869 [info ] [Thread-2 (]: 2 of 7 START sql view model dbt_maximerosa_staging.stg_orders .................. [RUN]
+[0m17:43:39.975123 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_SEQURA_DEV_dbt_maximerosa_staging, now model.sequra_analytics.stg_merchants)
+[0m17:43:39.975320 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_SEQURA_DEV_dbt_maximerosa_intermediate, now model.sequra_analytics.stg_orders)
+[0m17:43:39.975492 [debug] [Thread-1 (]: Began compiling node model.sequra_analytics.stg_merchants
+[0m17:43:39.975664 [debug] [Thread-2 (]: Began compiling node model.sequra_analytics.stg_orders
+[0m17:43:39.979991 [debug] [Thread-1 (]: Writing injected SQL for node "model.sequra_analytics.stg_merchants"
+[0m17:43:39.981947 [debug] [Thread-2 (]: Writing injected SQL for node "model.sequra_analytics.stg_orders"
+[0m17:43:39.984483 [debug] [Thread-1 (]: Began executing node model.sequra_analytics.stg_merchants
+[0m17:43:39.991239 [debug] [Thread-2 (]: Began executing node model.sequra_analytics.stg_orders
+[0m17:43:40.003282 [debug] [Thread-2 (]: Writing runtime sql for node "model.sequra_analytics.stg_orders"
+[0m17:43:40.006987 [debug] [Thread-1 (]: Writing runtime sql for node "model.sequra_analytics.stg_merchants"
+[0m17:43:40.009526 [debug] [Thread-1 (]: Using snowflake connection "model.sequra_analytics.stg_merchants"
+[0m17:43:40.009759 [debug] [Thread-1 (]: On model.sequra_analytics.stg_merchants: create or replace   view SEQURA_DEV.dbt_maximerosa_staging.stg_merchants
+  
+  
+  
+  
+  as (
+    
+
+select
+    merchant_id,
+    merchant_name
+from SEQURA_DEV.dbt_maximerosa_raw_data.merchants
+  )
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "model.sequra_analytics.stg_merchants"} */;
+[0m17:43:40.011100 [debug] [Thread-2 (]: Using snowflake connection "model.sequra_analytics.stg_orders"
+[0m17:43:40.011475 [debug] [Thread-2 (]: On model.sequra_analytics.stg_orders: create or replace   view SEQURA_DEV.dbt_maximerosa_staging.stg_orders
+  
+  
+  
+  
+  as (
+    
+
+with source_data as (
+    select
+        order_id,
+        shopper_id,
+        merchant_id,
+        order_date as order_date_raw,
+        -- Parse the date format (d/m/yy or dd/mm/yy)
+        case 
+            when split_part(order_date, '/', 3) = '22' then '2022'
+            when split_part(order_date, '/', 3) = '23' then '2023'
+            else '20' || split_part(order_date, '/', 3)
+        end || '-' ||
+        lpad(split_part(order_date, '/', 2), 2, '0') || '-' ||
+        lpad(split_part(order_date, '/', 1), 2, '0') as order_date_formatted
+    from SEQURA_DEV.dbt_maximerosa_raw_data.orders_merchant
+)
+
+select
+    order_id,
+    shopper_id,
+    merchant_id,
+    order_date_raw,
+    to_date(order_date_formatted, 'YYYY-MM-DD') as order_date,
+    date_trunc('month', to_date(order_date_formatted, 'YYYY-MM-DD')) as order_month,
+    to_char(to_date(order_date_formatted, 'YYYY-MM-DD'), 'YYYY-MM') as month_year
+from source_data
+where order_date_raw is not null
+  )
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "model.sequra_analytics.stg_orders"} */;
+[0m17:43:40.216579 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.206 seconds
+[0m17:43:40.235106 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e822fa22-87ae-4f90-9a89-17ff575b837e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x117f32ba0>]}
+[0m17:43:40.235552 [info ] [Thread-1 (]: 1 of 7 OK created sql view model dbt_maximerosa_staging.stg_merchants .......... [[32mSUCCESS 1[0m in 0.26s]
+[0m17:43:40.235861 [debug] [Thread-1 (]: Finished running node model.sequra_analytics.stg_merchants
+[0m17:43:40.269063 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.257 seconds
+[0m17:43:40.270390 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e822fa22-87ae-4f90-9a89-17ff575b837e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104387aa0>]}
+[0m17:43:40.270732 [info ] [Thread-2 (]: 2 of 7 OK created sql view model dbt_maximerosa_staging.stg_orders ............. [[32mSUCCESS 1[0m in 0.30s]
+[0m17:43:40.271016 [debug] [Thread-2 (]: Finished running node model.sequra_analytics.stg_orders
+[0m17:43:40.271504 [debug] [Thread-4 (]: Began running node model.sequra_analytics.default_ratio_analysis
+[0m17:43:40.271916 [info ] [Thread-4 (]: 3 of 7 START sql table model dbt_maximerosa_marts.default_ratio_analysis ....... [RUN]
+[0m17:43:40.272130 [debug] [Thread-3 (]: Began running node model.sequra_analytics.int_monthly_shoppers
+[0m17:43:40.272314 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly list_SEQURA_DEV_dbt_maximerosa_raw_data, now model.sequra_analytics.default_ratio_analysis)
+[0m17:43:40.272474 [debug] [Thread-1 (]: Began running node model.sequra_analytics.int_orders_with_defaults
+[0m17:43:40.272677 [info ] [Thread-3 (]: 4 of 7 START sql view model dbt_maximerosa_intermediate.int_monthly_shoppers ... [RUN]
+[0m17:43:40.272904 [debug] [Thread-2 (]: Began running node model.sequra_analytics.int_recurrent_shoppers
+[0m17:43:40.273084 [debug] [Thread-4 (]: Began compiling node model.sequra_analytics.default_ratio_analysis
+[0m17:43:40.273292 [info ] [Thread-1 (]: 5 of 7 START sql view model dbt_maximerosa_intermediate.int_orders_with_defaults  [RUN]
+[0m17:43:40.273489 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_SEQURA_DEV_dbt_maximerosa_marts, now model.sequra_analytics.int_monthly_shoppers)
+[0m17:43:40.273714 [info ] [Thread-2 (]: 6 of 7 START sql view model dbt_maximerosa_intermediate.int_recurrent_shoppers . [RUN]
+[0m17:43:40.275955 [debug] [Thread-4 (]: Writing injected SQL for node "model.sequra_analytics.default_ratio_analysis"
+[0m17:43:40.276186 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.sequra_analytics.stg_merchants, now model.sequra_analytics.int_orders_with_defaults)
+[0m17:43:40.276363 [debug] [Thread-3 (]: Began compiling node model.sequra_analytics.int_monthly_shoppers
+[0m17:43:40.276522 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.sequra_analytics.stg_orders, now model.sequra_analytics.int_recurrent_shoppers)
+[0m17:43:40.276769 [debug] [Thread-1 (]: Began compiling node model.sequra_analytics.int_orders_with_defaults
+[0m17:43:40.279740 [debug] [Thread-3 (]: Writing injected SQL for node "model.sequra_analytics.int_monthly_shoppers"
+[0m17:43:40.280040 [debug] [Thread-2 (]: Began compiling node model.sequra_analytics.int_recurrent_shoppers
+[0m17:43:40.281708 [debug] [Thread-1 (]: Writing injected SQL for node "model.sequra_analytics.int_orders_with_defaults"
+[0m17:43:40.281980 [debug] [Thread-4 (]: Began executing node model.sequra_analytics.default_ratio_analysis
+[0m17:43:40.283671 [debug] [Thread-2 (]: Writing injected SQL for node "model.sequra_analytics.int_recurrent_shoppers"
+[0m17:43:40.296364 [debug] [Thread-4 (]: Writing runtime sql for node "model.sequra_analytics.default_ratio_analysis"
+[0m17:43:40.296775 [debug] [Thread-3 (]: Began executing node model.sequra_analytics.int_monthly_shoppers
+[0m17:43:40.298140 [debug] [Thread-3 (]: Writing runtime sql for node "model.sequra_analytics.int_monthly_shoppers"
+[0m17:43:40.298417 [debug] [Thread-1 (]: Began executing node model.sequra_analytics.int_orders_with_defaults
+[0m17:43:40.299744 [debug] [Thread-1 (]: Writing runtime sql for node "model.sequra_analytics.int_orders_with_defaults"
+[0m17:43:40.300027 [debug] [Thread-2 (]: Began executing node model.sequra_analytics.int_recurrent_shoppers
+[0m17:43:40.301346 [debug] [Thread-2 (]: Writing runtime sql for node "model.sequra_analytics.int_recurrent_shoppers"
+[0m17:43:40.301855 [debug] [Thread-3 (]: Using snowflake connection "model.sequra_analytics.int_monthly_shoppers"
+[0m17:43:40.303197 [debug] [Thread-4 (]: Using snowflake connection "model.sequra_analytics.default_ratio_analysis"
+[0m17:43:40.303403 [debug] [Thread-3 (]: On model.sequra_analytics.int_monthly_shoppers: create or replace   view SEQURA_DEV.dbt_maximerosa_intermediate.int_monthly_shoppers
+  
+  
+  
+  
+  as (
+    
+
+with monthly_orders as (
+    select distinct
+        order_month,
+        month_year,
+        merchant_id,
+        shopper_id
+    from SEQURA_DEV.dbt_maximerosa_staging.stg_orders
+)
+
+select
+    order_month,
+    month_year,
+    merchant_id,
+    shopper_id,
+    -- Flag if this shopper made a purchase with this merchant in the current month
+    1 as made_purchase_current_month
+from monthly_orders
+  )
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "model.sequra_analytics.int_monthly_shoppers"} */;
+[0m17:43:40.304119 [debug] [Thread-1 (]: Using snowflake connection "model.sequra_analytics.int_orders_with_defaults"
+[0m17:43:40.304410 [debug] [Thread-4 (]: On model.sequra_analytics.default_ratio_analysis: create or replace transient table SEQURA_DEV.dbt_maximerosa_marts.default_ratio_analysis
+    
+    
+    
+    as (
+
+-- This model calculates the default ratio as requested in Part 2
+
+with orders_with_defaults as (
+    -- This would come from the actual orders table with financial data
+    select
+        o.*,
+        m.merchant_name as merchant,
+        -- These fields would come from the actual source data:
+        null::integer as shopper_age,
+        null::varchar as product,
+        null::boolean as is_in_default,
+        null::integer as days_unbalanced,
+        null::decimal(15,2) as current_order_value,
+        null::decimal(15,2) as overdue_amount
+    from SEQURA_DEV.dbt_maximerosa_staging.stg_orders o
+    left join SEQURA_DEV.dbt_maximerosa_staging.stg_merchants m
+        on o.merchant_id = m.merchant_id
+),
+
+-- Calculate delayed periods based on days_unbalanced
+-- An order with 35 days unbalanced is included in both 17 and 30 day calculations
+delayed_period_17 as (
+    select
+        shopper_age,
+        month_year as month_year_order,
+        product,
+        merchant,
+        'in_default' as default_type,
+        '17' as delayed_period
+    from orders_with_defaults
+    where days_unbalanced > 17
+        and is_in_default = true
+),
+
+delayed_period_30 as (
+    select
+        shopper_age,
+        month_year as month_year_order,
+        product,
+        merchant,
+        'in_default' as default_type,
+        '30' as delayed_period
+    from orders_with_defaults
+    where days_unbalanced > 30
+        and is_in_default = true
+),
+
+delayed_period_60 as (
+    select
+        shopper_age,
+        month_year as month_year_order,
+        product,
+        merchant,
+        'in_default' as default_type,
+        '60' as delayed_period
+    from orders_with_defaults
+    where days_unbalanced > 60
+        and is_in_default = true
+),
+
+delayed_period_90 as (
+    select
+        shopper_age,
+        month_year as month_year_order,
+        product,
+        merchant,
+        'in_default' as default_type,
+        '90' as delayed_period
+    from orders_with_defaults
+    where days_unbalanced > 90
+        and is_in_default = true
+),
+
+-- Union all delayed periods
+all_defaults as (
+    select * from delayed_period_17
+    union all
+    select * from delayed_period_30
+    union all
+    select * from delayed_period_60
+    union all
+    select * from delayed_period_90
+)
+
+-- Final output with the exact columns requested
+select
+    shopper_age,
+    month_year_order,
+    product,
+    merchant,
+    default_type,
+    delayed_period
+from all_defaults
+order by 
+    month_year_order,
+    merchant,
+    delayed_period::integer
+    )
+
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "model.sequra_analytics.default_ratio_analysis"} */;
+[0m17:43:40.304914 [debug] [Thread-1 (]: On model.sequra_analytics.int_orders_with_defaults: create or replace   view SEQURA_DEV.dbt_maximerosa_intermediate.int_orders_with_defaults
+  
+  
+  
+  
+  as (
+    
+
+-- Placeholder for Part 2 of the challenge
+-- This would contain the logic for calculating default ratios
+-- when the additional data tables are available
+
+with orders_base as (
+    select
+        o.*,
+        m.merchant_name,
+        -- Placeholder fields for default calculation
+        -- These would come from the actual orders table with financial data
+        null::boolean as is_in_default,
+        null::integer as days_unbalanced,
+        null::decimal(15,2) as current_order_value,
+        null::decimal(15,2) as overdue_amount,
+        null::varchar as product,
+        null::integer as shopper_age
+    from SEQURA_DEV.dbt_maximerosa_staging.stg_orders o
+    left join SEQURA_DEV.dbt_maximerosa_staging.stg_merchants m
+        on o.merchant_id = m.merchant_id
+)
+
+select
+    *,
+    case
+        when days_unbalanced > 90 then '90+'
+        when days_unbalanced > 60 then '60'
+        when days_unbalanced > 30 then '30'
+        when days_unbalanced > 17 then '17'
+        else null
+    end as delayed_period
+from orders_base
+  )
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "model.sequra_analytics.int_orders_with_defaults"} */;
+[0m17:43:40.306596 [debug] [Thread-2 (]: Using snowflake connection "model.sequra_analytics.int_recurrent_shoppers"
+[0m17:43:40.306924 [debug] [Thread-2 (]: On model.sequra_analytics.int_recurrent_shoppers: create or replace   view SEQURA_DEV.dbt_maximerosa_intermediate.int_recurrent_shoppers
+  
+  
+  
+  
+  as (
+    
+
+with order_history as (
+    select
+        o1.order_month as current_month,
+        o1.month_year as current_month_year,
+        o1.merchant_id,
+        o1.shopper_id,
+        count(distinct o2.order_month) as months_with_purchases
+    from SEQURA_DEV.dbt_maximerosa_staging.stg_orders o1
+    left join SEQURA_DEV.dbt_maximerosa_staging.stg_orders o2
+        on o1.merchant_id = o2.merchant_id
+        and o1.shopper_id = o2.shopper_id
+        and o2.order_date between dateadd(month, -11, o1.order_month) and last_day(o1.order_month)
+        and o2.order_month <= o1.order_month
+    group by 1, 2, 3, 4
+)
+
+select
+    current_month,
+    current_month_year,
+    merchant_id,
+    shopper_id,
+    months_with_purchases,
+    -- A shopper is recurrent if they have made purchases in at least 2 different months
+    -- within the 12-month window including the current month
+    case 
+        when months_with_purchases >= 2 then 1 
+        else 0 
+    end as is_recurrent
+from order_history
+  )
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "model.sequra_analytics.int_recurrent_shoppers"} */;
+[0m17:43:40.590783 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.286 seconds
+[0m17:43:40.594729 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e822fa22-87ae-4f90-9a89-17ff575b837e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12078c9e0>]}
+[0m17:43:40.595133 [info ] [Thread-3 (]: 4 of 7 OK created sql view model dbt_maximerosa_intermediate.int_monthly_shoppers  [[32mSUCCESS 1[0m in 0.32s]
+[0m17:43:40.595419 [debug] [Thread-3 (]: Finished running node model.sequra_analytics.int_monthly_shoppers
+[0m17:43:40.604097 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.297 seconds
+[0m17:43:40.605182 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e822fa22-87ae-4f90-9a89-17ff575b837e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12076ffb0>]}
+[0m17:43:40.605716 [info ] [Thread-2 (]: 6 of 7 OK created sql view model dbt_maximerosa_intermediate.int_recurrent_shoppers  [[32mSUCCESS 1[0m in 0.33s]
+[0m17:43:40.606025 [debug] [Thread-2 (]: Finished running node model.sequra_analytics.int_recurrent_shoppers
+[0m17:43:40.606358 [debug] [Thread-3 (]: Began running node model.sequra_analytics.shopper_recurrence_rate
+[0m17:43:40.606675 [info ] [Thread-3 (]: 7 of 7 START sql table model dbt_maximerosa_marts.shopper_recurrence_rate ...... [RUN]
+[0m17:43:40.606930 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.sequra_analytics.int_monthly_shoppers, now model.sequra_analytics.shopper_recurrence_rate)
+[0m17:43:40.607110 [debug] [Thread-3 (]: Began compiling node model.sequra_analytics.shopper_recurrence_rate
+[0m17:43:40.609378 [debug] [Thread-3 (]: Writing injected SQL for node "model.sequra_analytics.shopper_recurrence_rate"
+[0m17:43:40.610148 [debug] [Thread-3 (]: Began executing node model.sequra_analytics.shopper_recurrence_rate
+[0m17:43:40.612421 [debug] [Thread-3 (]: Writing runtime sql for node "model.sequra_analytics.shopper_recurrence_rate"
+[0m17:43:40.615959 [debug] [Thread-3 (]: Using snowflake connection "model.sequra_analytics.shopper_recurrence_rate"
+[0m17:43:40.616167 [debug] [Thread-3 (]: On model.sequra_analytics.shopper_recurrence_rate: create or replace transient table SEQURA_DEV.dbt_maximerosa_marts.shopper_recurrence_rate
+    
+    
+    
+    as (
+
+with monthly_metrics as (
+    select
+        ms.order_month,
+        ms.month_year,
+        ms.merchant_id,
+        m.merchant_name,
+        count(distinct ms.shopper_id) as total_shoppers,
+        sum(rs.is_recurrent) as recurrent_shoppers
+    from SEQURA_DEV.dbt_maximerosa_intermediate.int_monthly_shoppers ms
+    left join SEQURA_DEV.dbt_maximerosa_intermediate.int_recurrent_shoppers rs
+        on ms.order_month = rs.current_month
+        and ms.merchant_id = rs.merchant_id
+        and ms.shopper_id = rs.shopper_id
+    left join SEQURA_DEV.dbt_maximerosa_staging.stg_merchants m
+        on ms.merchant_id = m.merchant_id
+    group by 1, 2, 3, 4
+)
+
+select
+    merchant_name,
+    month_year as month,
+    round(
+        case 
+            when total_shoppers > 0 
+            then (recurrent_shoppers::decimal / total_shoppers) * 100
+            else 0 
+        end, 2
+    ) as recurrence_rate
+from monthly_metrics
+order by merchant_name, month
+    )
+
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "model.sequra_analytics.shopper_recurrence_rate"} */;
+[0m17:43:40.682601 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.377 seconds
+[0m17:43:40.685078 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e822fa22-87ae-4f90-9a89-17ff575b837e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x120787f50>]}
+[0m17:43:40.685517 [info ] [Thread-1 (]: 5 of 7 OK created sql view model dbt_maximerosa_intermediate.int_orders_with_defaults  [[32mSUCCESS 1[0m in 0.41s]
+[0m17:43:40.685820 [debug] [Thread-1 (]: Finished running node model.sequra_analytics.int_orders_with_defaults
+[0m17:43:41.216088 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.911 seconds
+[0m17:43:41.217280 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e822fa22-87ae-4f90-9a89-17ff575b837e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x120790950>]}
+[0m17:43:41.217607 [info ] [Thread-4 (]: 3 of 7 OK created sql table model dbt_maximerosa_marts.default_ratio_analysis .. [[32mSUCCESS 1[0m in 0.94s]
+[0m17:43:41.217886 [debug] [Thread-4 (]: Finished running node model.sequra_analytics.default_ratio_analysis
+[0m17:43:41.884091 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.268 seconds
+[0m17:43:41.885364 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e822fa22-87ae-4f90-9a89-17ff575b837e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1207b30e0>]}
+[0m17:43:41.885714 [info ] [Thread-3 (]: 7 of 7 OK created sql table model dbt_maximerosa_marts.shopper_recurrence_rate . [[32mSUCCESS 1[0m in 1.28s]
+[0m17:43:41.886001 [debug] [Thread-3 (]: Finished running node model.sequra_analytics.shopper_recurrence_rate
+[0m17:43:41.886681 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m17:43:41.886863 [debug] [MainThread]: Connection 'model.sequra_analytics.int_orders_with_defaults' was left open.
+[0m17:43:41.887016 [debug] [MainThread]: On model.sequra_analytics.int_orders_with_defaults: Close
+[0m17:43:41.972959 [debug] [MainThread]: Connection 'model.sequra_analytics.int_recurrent_shoppers' was left open.
+[0m17:43:41.973343 [debug] [MainThread]: On model.sequra_analytics.int_recurrent_shoppers: Close
+[0m17:43:42.064849 [debug] [MainThread]: Connection 'model.sequra_analytics.shopper_recurrence_rate' was left open.
+[0m17:43:42.065115 [debug] [MainThread]: On model.sequra_analytics.shopper_recurrence_rate: Close
+[0m17:43:42.150594 [debug] [MainThread]: Connection 'model.sequra_analytics.default_ratio_analysis' was left open.
+[0m17:43:42.150833 [debug] [MainThread]: On model.sequra_analytics.default_ratio_analysis: Close
+[0m17:43:42.234643 [info ] [MainThread]: 
+[0m17:43:42.234927 [info ] [MainThread]: Finished running 2 table models, 5 view models in 0 hours 0 minutes and 7.43 seconds (7.43s).
+[0m17:43:42.235617 [debug] [MainThread]: Command end result
+[0m17:43:42.250190 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/maximerosa/Downloads/sequra_test/sequra_analytics/target/manifest.json
+[0m17:43:42.252373 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/maximerosa/Downloads/sequra_test/sequra_analytics/target/semantic_manifest.json
+[0m17:43:42.256994 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/maximerosa/Downloads/sequra_test/sequra_analytics/target/run_results.json
+[0m17:43:42.257183 [info ] [MainThread]: 
+[0m17:43:42.257375 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m17:43:42.257521 [info ] [MainThread]: 
+[0m17:43:42.257674 [info ] [MainThread]: Done. PASS=7 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=7
+[0m17:43:42.259535 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 8.2860775, "process_in_blocks": "0", "process_kernel_time": 0.450842, "process_mem_max_rss": "178552832", "process_out_blocks": "0", "process_user_time": 1.609883}
+[0m17:43:42.259805 [debug] [MainThread]: Command `dbt run` succeeded at 17:43:42.259757 after 8.29 seconds
+[0m17:43:42.259987 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10540d820>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10540d790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1052f5850>]}
+[0m17:43:42.260165 [debug] [MainThread]: Flushing usage events
+[0m17:43:42.705511 [debug] [MainThread]: An error was encountered while trying to flush usage events
