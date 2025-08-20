@@ -6,8 +6,8 @@ You can check the data using the following reader account:
 
 https://ayjjdhk-sequra_test.snowflakecomputing.com
 
-Username: ADMIN
-Password: Sequra123
+Username: maximerosa
+Password: Sequratest123!
 You can query the table using the worksheet 'SETUP'
 --------------------------------------------------------------------------------------------
 I created a trial DBT Cloud account to gather all the SQL queries and organize the transformations, you can check the final models here.
