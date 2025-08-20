@@ -1,10 +1,10 @@
 # Sequra Analytics Engineering Challenge - dbt Project
 
-## 📋 Overview
+## Overview
 
 This dbt project implements the analytics engineering challenge for Sequra, focusing on calculating customer loyalty metrics and default risk analysis. The project demonstrates modern data engineering best practices using dbt (data build tool) with Snowflake as the data warehouse.
 
-## 🎯 Business Objectives
+## Business Objectives
 
 ### 1. Shopper Recurrence Rate
 Calculate the percentage of customers who have made repeat purchases with merchants, providing insights into:
@@ -18,7 +18,7 @@ Monitor the evolution of payment defaults over time to:
 - Track debt recovery performance
 - Support data-driven credit risk decisions
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
@@ -33,7 +33,7 @@ Monitor the evolution of payment defaults over time to:
 3. **Intermediate**: Business logic and calculations
 4. **Marts**: Final analytical tables for reporting
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 sequra_analytics/
@@ -42,16 +42,16 @@ sequra_analytics/
 ├── profiles.yml                        # Connection configuration
 ├── models/
 │   ├── staging/                        # Data cleaning layer
-│   │   ├── _staging.yml                # Documentation & tests
+│   │   ├── schema.yml                # Documentation & tests
 │   │   ├── stg_orders.sql             # Orders staging
 │   │   └── stg_merchants.sql          # Merchants staging
 │   ├── intermediate/                   # Business logic layer
-│   │   ├── _intermediate.yml          # Documentation
+│   │   ├── schema.yml          # Documentation
 │   │   ├── int_monthly_shoppers.sql   # Monthly aggregations
 │   │   ├── int_recurrent_shoppers.sql # Recurrence logic
 │   │   └── int_orders_with_defaults.sql # Default analysis prep
 │   └── marts/                          # Final reporting layer
-│       ├── _marts.yml                 # Documentation & tests
+│       ├── schema.yml                 # Documentation & tests
 │       ├── shopper_recurrence_rate.sql # Main output table
 │       └── default_ratio_analysis.sql  # Risk analysis table
 ├── seeds/
@@ -65,7 +65,7 @@ sequra_analytics/
     └── calculate_delayed_period.sql   # Risk period calculation
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.7+
@@ -129,7 +129,7 @@ dbt docs generate
 dbt docs serve
 ```
 
-## 🔧 Development
+## Development
 
 ### Running Specific Models
 
@@ -163,7 +163,7 @@ dbt test --select test_type:schema
 dbt test --select test_type:data
 ```
 
-## 📈 Performance Optimization
+## Performance Optimization
 
 ### Materialization Strategy
 - **Views**: Staging and intermediate models (low storage, always fresh)
@@ -179,7 +179,7 @@ dbt test --select test_type:data
 - ✅ DRY principle with macros
 - ✅ Idempotent transformations
 
-## 🧪 Data Quality
+## Data Quality
 
 ### Automated Tests
 - **Uniqueness**: Order IDs, merchant IDs
@@ -187,7 +187,7 @@ dbt test --select test_type:data
 - **Referential Integrity**: Foreign key relationships
 - **Business Logic**: Recurrence rate bounds (0-100%)
 
-## 📝 Assumptions & Decisions
+## Assumptions & Decisions
 
 ### Data Assumptions
 1. **Date Format**: Dates in source are D/M/YY or DD/MM/YY format
