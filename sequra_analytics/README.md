@@ -171,13 +171,13 @@ dbt test --select test_type:data
 - **Incremental**: Can be implemented for large datasets
 
 ### Best Practices Implemented
-- ✅ Modular SQL with CTEs
-- ✅ Clear naming conventions
-- ✅ Comprehensive testing
-- ✅ Documentation for all models
-- ✅ Version control friendly
-- ✅ DRY principle with macros
-- ✅ Idempotent transformations
+- Modular SQL with CTEs
+- Clear naming conventions
+- Comprehensive testing
+- Documentation for all models
+- Version control friendly
+- DRY principle with macros
+- Idempotent transformations
 
 ## Data Quality
 
@@ -200,27 +200,3 @@ dbt test --select test_type:data
 2. **Incremental Logic**: Not implemented in v1 but structure supports it
 3. **Partitioning**: Not implemented but recommended for production
 4. **Error Handling**: Relies on dbt's built-in error handling
-
-# How to run the project ?
-
-## 1. Navigate to your project directory
-cd sequra_analytics
-
-## 2. Install dbt dependencies
-dbt deps
-
-## 3. Test connection
-dbt debug
-
-## 4. Load seed data
-dbt seed
-
-## 5. Run all models
-dbt run
-
-## 6. Test data quality
-dbt test
-
-## 7. Generate documentation
-dbt docs generate
-dbt docs serve
