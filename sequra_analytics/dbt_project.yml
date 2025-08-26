@@ -30,10 +30,19 @@ models:
 
 seeds:
   sequra_analytics:
-    schema: raw_data
-    orders_merchant:
+    orders_financial:
       column_types:
         order_id: integer
         shopper_id: integer
+        order_date: date
+        product_id: integer
         merchant_id: integer
-        order_date: varchar
+        is_in_default: boolean
+        days_unbalanced: integer
+        current_order_value: decimal(10,2)
+        overdue_principal: decimal(10,2)
+        overdue_fees: decimal(10,2)
+    dim_shoppers:
+      column_types:
+        shopper_id: integer
+        age: integer

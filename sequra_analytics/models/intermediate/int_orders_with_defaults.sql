@@ -4,34 +4,46 @@
     )
 }}
 
--- Placeholder for Part 2 of the challenge
--- This would contain the logic for calculating default ratios
--- when the additional data tables are available
-
-with orders_base as (
+with orders_enriched as (
     select
-        o.*,
-        m.merchant_name,
-        -- Placeholder fields for default calculation
-        -- These would come from the actual orders table with financial data
-        null::boolean as is_in_default,
-        null::integer as days_unbalanced,
-        null::decimal(15,2) as current_order_value,
-        null::decimal(15,2) as overdue_amount,
-        null::varchar as product,
-        null::integer as shopper_age
-    from {{ ref('stg_orders') }} o
+        -- Order information
+        o.order_id,
+        o.order_date,
+        o.order_month,
+        o.month_year_order,
+        
+        -- Product and merchant
+        o.product_id,
+        o.product,
+        o.merchant_id,
+        m.merchant_name as merchant,
+        
+        -- Shopper information
+        o.shopper_id,
+        s.shopper_age,
+        
+        -- Financial metrics
+        o.is_in_default,
+        o.days_unbalanced,
+        o.current_order_value,
+        o.overdue_principal,
+        o.overdue_fees,
+        o.total_overdue,
+        
+        -- Calculated delayed period (for filtering, not cumulative)
+        case
+            when o.days_unbalanced > 90 then '90'
+            when o.days_unbalanced > 60 then '60'
+            when o.days_unbalanced > 30 then '30'
+            when o.days_unbalanced > 17 then '17'
+            else null
+        end as max_delayed_period
+        
+    from {{ ref('stg_orders_financial') }} o
+    left join {{ ref('stg_dim_shoppers') }} s
+        on o.shopper_id = s.shopper_id
     left join {{ ref('stg_merchants') }} m
         on o.merchant_id = m.merchant_id
 )
 
-select
-    *,
-    case
-        when days_unbalanced > 90 then '90+'
-        when days_unbalanced > 60 then '60'
-        when days_unbalanced > 30 then '30'
-        when days_unbalanced > 17 then '17'
-        else null
-    end as delayed_period
-from orders_base
+select * from orders_enriched

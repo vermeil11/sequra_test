@@ -20,9 +20,7 @@ select
     order_month,
     month_year,
     merchant_id,
-    shopper_id,
-    -- Flag if this shopper made a purchase with this merchant in the current month
-    1 as made_purchase_current_month
+    shopper_id
 from monthly_orders
   );
 

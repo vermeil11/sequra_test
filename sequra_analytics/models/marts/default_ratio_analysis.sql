@@ -4,100 +4,77 @@
     )
 }}
 
--- This model calculates the default ratio as requested in Part 2
-
-with orders_with_defaults as (
-    -- This would come from the actual orders table with financial data
-    select
-        o.*,
-        m.merchant_name as merchant,
-        -- These fields would come from the actual source data:
-        null::integer as shopper_age,
-        null::varchar as product,
-        null::boolean as is_in_default,
-        null::integer as days_unbalanced,
-        null::decimal(15,2) as current_order_value,
-        null::decimal(15,2) as overdue_amount
-    from {{ ref('stg_orders') }} o
-    left join {{ ref('stg_merchants') }} m
-        on o.merchant_id = m.merchant_id
+-- Now we properly use the intermediate model!
+with base_data as (
+    select * from {{ ref('int_orders_with_defaults') }}
+    where is_in_default = true  -- Only defaults for this analysis
 ),
 
--- Calculate delayed periods based on days_unbalanced
--- An order with 35 days unbalanced is included in both 17 and 30 day calculations
-delayed_period_17 as (
+-- Generate records for each applicable delayed period using UNION ALL
+-- This implements the cumulative logic: 35 days appears in both 17 and 30
+expanded_periods as (
+    -- Period 17: All orders with days_unbalanced > 17
     select
         shopper_age,
-        month_year as month_year_order,
+        month_year_order,
         product,
         merchant,
         'in_default' as default_type,
         '17' as delayed_period
-    from orders_with_defaults
+    from base_data
     where days_unbalanced > 17
-        and is_in_default = true
-),
-
-delayed_period_30 as (
+    
+    union all
+    
+    -- Period 30: All orders with days_unbalanced > 30
     select
         shopper_age,
-        month_year as month_year_order,
+        month_year_order,
         product,
         merchant,
         'in_default' as default_type,
         '30' as delayed_period
-    from orders_with_defaults
+    from base_data
     where days_unbalanced > 30
-        and is_in_default = true
-),
-
-delayed_period_60 as (
+    
+    union all
+    
+    -- Period 60: All orders with days_unbalanced > 60
     select
         shopper_age,
-        month_year as month_year_order,
+        month_year_order,
         product,
         merchant,
         'in_default' as default_type,
         '60' as delayed_period
-    from orders_with_defaults
+    from base_data
     where days_unbalanced > 60
-        and is_in_default = true
-),
-
-delayed_period_90 as (
+    
+    union all
+    
+    -- Period 90: All orders with days_unbalanced > 90
     select
         shopper_age,
-        month_year as month_year_order,
+        month_year_order,
         product,
         merchant,
         'in_default' as default_type,
         '90' as delayed_period
-    from orders_with_defaults
+    from base_data
     where days_unbalanced > 90
-        and is_in_default = true
-),
-
--- Union all delayed periods
-all_defaults as (
-    select * from delayed_period_17
-    union all
-    select * from delayed_period_30
-    union all
-    select * from delayed_period_60
-    union all
-    select * from delayed_period_90
 )
 
--- Final output with the exact columns requested
-select
+-- Final output with exact columns requested
+select distinct
     shopper_age,
     month_year_order,
     product,
     merchant,
     default_type,
     delayed_period
-from all_defaults
+from expanded_periods
+where merchant is not null  -- Exclude records without merchant mapping
 order by 
     month_year_order,
     merchant,
-    delayed_period::integer
+    cast(delayed_period as integer)

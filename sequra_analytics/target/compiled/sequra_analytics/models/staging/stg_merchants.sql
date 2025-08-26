@@ -3,4 +3,4 @@
 select
     merchant_id,
     merchant_name
-from SEQURA_DEV.dbt_maximerosa_raw_data.merchants
+from SEQURA_DEV.dbt_maximerosa.merchants

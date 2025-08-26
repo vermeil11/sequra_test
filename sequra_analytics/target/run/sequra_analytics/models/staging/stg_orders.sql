@@ -21,7 +21,7 @@ with source_data as (
         end || '-' ||
         lpad(split_part(order_date, '/', 2), 2, '0') || '-' ||
         lpad(split_part(order_date, '/', 1), 2, '0') as order_date_formatted
-    from SEQURA_DEV.dbt_maximerosa_raw_data.orders_merchant
+    from SEQURA_DEV.dbt_maximerosa.orders_merchant
 )
 
 select

@@ -2,11 +2,11 @@
     
     
     
-    create table SEQURA_DEV.dbt_maximerosa_raw_data.orders_merchant (order_id integer,shopper_id integer,merchant_id integer,order_date text)
+    create table SEQURA_DEV.dbt_maximerosa.orders_merchant (order_id integer,shopper_id integer,merchant_id integer,order_date text)
   ;
     -- dbt seed --
     
-            insert into SEQURA_DEV.dbt_maximerosa_raw_data.orders_merchant (order_id, shopper_id, merchant_id, order_date) values
+            insert into SEQURA_DEV.dbt_maximerosa.orders_merchant (order_id, shopper_id, merchant_id, order_date) values
             (%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s)
         
 
