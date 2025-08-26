@@ -27,6 +27,6 @@ select
     overdue_principal,
     overdue_fees,
     overdue_principal + overdue_fees as total_overdue
-from SEQURA_DEV.dbt_maximerosa.orders_financial
+from SEQURA_DEV.dbt_maximerosa_raw_data.orders_financial
   );
 
