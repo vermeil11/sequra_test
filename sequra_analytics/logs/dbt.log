@@ -5824,3 +5824,230 @@ order by
 [0m20:00:26.729837 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104cc7bc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105d11af0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105d11370>]}
 [0m20:00:26.730086 [debug] [MainThread]: Flushing usage events
 [0m20:00:27.302336 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:10:37.270681 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1045f8fb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10501da90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10501d790>]}
+
+
+============================== 20:10:37.275689 | f37d1520-4336-49fc-91ec-2a6ad90b50cb ==============================
+[0m20:10:37.275689 [info ] [MainThread]: Running with dbt=1.10.9
+[0m20:10:37.276106 [debug] [MainThread]: running dbt with arguments {'warn_error': 'None', 'target_path': 'None', 'send_anonymous_usage_stats': 'True', 'static_parser': 'True', 'empty': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'introspect': 'True', 'invocation_command': 'dbt seed', 'log_format': 'default', 'use_experimental_parser': 'False', 'quiet': 'False', 'write_json': 'True', 'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'profiles_dir': '/Users/maximerosa/Downloads/SeQura-Test-Analytics-Engineer/sequra_analytics', 'printer_width': '80', 'version_check': 'True', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'log_path': '/Users/maximerosa/Downloads/SeQura-Test-Analytics-Engineer/sequra_analytics/logs', 'debug': 'False', 'cache_selected_only': 'False', 'no_print': 'None'}
+[0m20:10:37.663830 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f37d1520-4336-49fc-91ec-2a6ad90b50cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1029bc470>]}
+[0m20:10:37.693720 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f37d1520-4336-49fc-91ec-2a6ad90b50cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1043867b0>]}
+[0m20:10:37.694736 [info ] [MainThread]: Registered adapter: snowflake=1.10.0
+[0m20:10:37.767915 [debug] [MainThread]: checksum: 6543b8b248ceda473ef0d611849d5d909085b6b714afa9b515e9635faea7af23, vars: {}, profile: , target: , version: 1.10.9
+[0m20:10:37.900964 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m20:10:37.901233 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m20:10:37.904337 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 4 unused configuration paths:
+- seeds.sequra_analytics.orders_financial.column_types
+- seeds.sequra_analytics.orders_merchant.column_types
+- seeds.sequra_analytics.orders_merchant.merchants.column_types
+- seeds.sequra_analytics.dim_shoppers.column_types
+[0m20:10:37.927697 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f37d1520-4336-49fc-91ec-2a6ad90b50cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105c06c30>]}
+[0m20:10:37.972220 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/maximerosa/Downloads/SeQura-Test-Analytics-Engineer/sequra_analytics/target/manifest.json
+[0m20:10:37.974311 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/maximerosa/Downloads/SeQura-Test-Analytics-Engineer/sequra_analytics/target/semantic_manifest.json
+[0m20:10:37.997430 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f37d1520-4336-49fc-91ec-2a6ad90b50cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105c75fd0>]}
+[0m20:10:37.997739 [info ] [MainThread]: Found 9 models, 4 seeds, 11 data tests, 479 macros
+[0m20:10:37.997913 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f37d1520-4336-49fc-91ec-2a6ad90b50cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105ebe4e0>]}
+[0m20:10:37.998986 [info ] [MainThread]: 
+[0m20:10:37.999171 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m20:10:37.999313 [info ] [MainThread]: 
+[0m20:10:37.999587 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m20:10:38.001887 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SEQURA_DEV'
+[0m20:10:38.075919 [debug] [ThreadPool]: Using snowflake connection "list_SEQURA_DEV"
+[0m20:10:38.076201 [debug] [ThreadPool]: On list_SEQURA_DEV: show terse schemas in database SEQURA_DEV
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "connection_name": "list_SEQURA_DEV"} */
+[0m20:10:38.076367 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:10:41.280108 [debug] [ThreadPool]: SQL status: SUCCESS 7 in 3.204 seconds
+[0m20:10:41.281422 [debug] [ThreadPool]: On list_SEQURA_DEV: Close
+[0m20:10:41.391510 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_SEQURA_DEV, now list_SEQURA_DEV_dbt_maximerosa_raw_data)
+[0m20:10:41.392324 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SEQURA_DEV_dbt_maximerosa_marts'
+[0m20:10:41.392779 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SEQURA_DEV_dbt_maximerosa_staging'
+[0m20:10:41.394059 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SEQURA_DEV_dbt_maximerosa_intermediate'
+[0m20:10:41.404794 [debug] [ThreadPool]: Using snowflake connection "list_SEQURA_DEV_dbt_maximerosa_raw_data"
+[0m20:10:41.406700 [debug] [ThreadPool]: Using snowflake connection "list_SEQURA_DEV_dbt_maximerosa_marts"
+[0m20:10:41.408648 [debug] [ThreadPool]: Using snowflake connection "list_SEQURA_DEV_dbt_maximerosa_staging"
+[0m20:10:41.410242 [debug] [ThreadPool]: Using snowflake connection "list_SEQURA_DEV_dbt_maximerosa_intermediate"
+[0m20:10:41.410491 [debug] [ThreadPool]: On list_SEQURA_DEV_dbt_maximerosa_raw_data: show objects in SEQURA_DEV.dbt_maximerosa_raw_data
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "connection_name": "list_SEQURA_DEV_dbt_maximerosa_raw_data"} */;
+[0m20:10:41.410725 [debug] [ThreadPool]: On list_SEQURA_DEV_dbt_maximerosa_marts: show objects in SEQURA_DEV.dbt_maximerosa_marts
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "connection_name": "list_SEQURA_DEV_dbt_maximerosa_marts"} */;
+[0m20:10:41.410937 [debug] [ThreadPool]: On list_SEQURA_DEV_dbt_maximerosa_staging: show objects in SEQURA_DEV.dbt_maximerosa_staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "connection_name": "list_SEQURA_DEV_dbt_maximerosa_staging"} */;
+[0m20:10:41.411135 [debug] [ThreadPool]: On list_SEQURA_DEV_dbt_maximerosa_intermediate: show objects in SEQURA_DEV.dbt_maximerosa_intermediate
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "connection_name": "list_SEQURA_DEV_dbt_maximerosa_intermediate"} */;
+[0m20:10:41.411319 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m20:10:41.411491 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:10:41.411661 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:10:41.411824 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:10:44.069392 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 2.658 seconds
+[0m20:10:44.070171 [debug] [ThreadPool]: SQL status: SUCCESS 3 in 2.658 seconds
+[0m20:10:44.072055 [debug] [ThreadPool]: On list_SEQURA_DEV_dbt_maximerosa_raw_data: Close
+[0m20:10:44.072614 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 2.661 seconds
+[0m20:10:44.074123 [debug] [ThreadPool]: On list_SEQURA_DEV_dbt_maximerosa_intermediate: Close
+[0m20:10:44.076373 [debug] [ThreadPool]: On list_SEQURA_DEV_dbt_maximerosa_staging: Close
+[0m20:10:44.081127 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 2.670 seconds
+[0m20:10:44.082423 [debug] [ThreadPool]: On list_SEQURA_DEV_dbt_maximerosa_marts: Close
+[0m20:10:44.165043 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f37d1520-4336-49fc-91ec-2a6ad90b50cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1062d7800>]}
+[0m20:10:44.169351 [debug] [Thread-6 (]: Began running node seed.sequra_analytics.dim_shoppers
+[0m20:10:44.169787 [debug] [Thread-7 (]: Began running node seed.sequra_analytics.merchants
+[0m20:10:44.170169 [debug] [Thread-8 (]: Began running node seed.sequra_analytics.orders_financial
+[0m20:10:44.171139 [debug] [Thread-9 (]: Began running node seed.sequra_analytics.orders_merchant
+[0m20:10:44.170781 [info ] [Thread-6 (]: 1 of 4 START seed file dbt_maximerosa_raw_data.dim_shoppers .................... [RUN]
+[0m20:10:44.171739 [info ] [Thread-7 (]: 2 of 4 START seed file dbt_maximerosa_raw_data.merchants ....................... [RUN]
+[0m20:10:44.172301 [info ] [Thread-8 (]: 3 of 4 START seed file dbt_maximerosa_raw_data.orders_financial ................ [RUN]
+[0m20:10:44.172850 [info ] [Thread-9 (]: 4 of 4 START seed file dbt_maximerosa_raw_data.orders_merchant ................. [RUN]
+[0m20:10:44.173366 [debug] [Thread-6 (]: Re-using an available connection from the pool (formerly list_SEQURA_DEV_dbt_maximerosa_raw_data, now seed.sequra_analytics.dim_shoppers)
+[0m20:10:44.173939 [debug] [Thread-7 (]: Re-using an available connection from the pool (formerly list_SEQURA_DEV_dbt_maximerosa_marts, now seed.sequra_analytics.merchants)
+[0m20:10:44.174379 [debug] [Thread-8 (]: Re-using an available connection from the pool (formerly list_SEQURA_DEV_dbt_maximerosa_staging, now seed.sequra_analytics.orders_financial)
+[0m20:10:44.174840 [debug] [Thread-9 (]: Acquiring new snowflake connection 'seed.sequra_analytics.orders_merchant'
+[0m20:10:44.175168 [debug] [Thread-6 (]: Began compiling node seed.sequra_analytics.dim_shoppers
+[0m20:10:44.175454 [debug] [Thread-7 (]: Began compiling node seed.sequra_analytics.merchants
+[0m20:10:44.175734 [debug] [Thread-8 (]: Began compiling node seed.sequra_analytics.orders_financial
+[0m20:10:44.175996 [debug] [Thread-9 (]: Began compiling node seed.sequra_analytics.orders_merchant
+[0m20:10:44.176292 [debug] [Thread-6 (]: Began executing node seed.sequra_analytics.dim_shoppers
+[0m20:10:44.176561 [debug] [Thread-7 (]: Began executing node seed.sequra_analytics.merchants
+[0m20:10:44.176820 [debug] [Thread-8 (]: Began executing node seed.sequra_analytics.orders_financial
+[0m20:10:44.177072 [debug] [Thread-9 (]: Began executing node seed.sequra_analytics.orders_merchant
+[0m20:10:44.219119 [debug] [Thread-6 (]: Using snowflake connection "seed.sequra_analytics.dim_shoppers"
+[0m20:10:44.219517 [debug] [Thread-6 (]: On seed.sequra_analytics.dim_shoppers: create table SEQURA_DEV.dbt_maximerosa_raw_data.dim_shoppers (shopper_id integer,age integer)
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.dim_shoppers"} */
+[0m20:10:44.221411 [debug] [Thread-8 (]: Using snowflake connection "seed.sequra_analytics.orders_financial"
+[0m20:10:44.227834 [debug] [Thread-6 (]: Opening a new connection, currently in state closed
+[0m20:10:44.229220 [debug] [Thread-7 (]: Using snowflake connection "seed.sequra_analytics.merchants"
+[0m20:10:44.229422 [debug] [Thread-9 (]: Using snowflake connection "seed.sequra_analytics.orders_merchant"
+[0m20:10:44.229639 [debug] [Thread-8 (]: On seed.sequra_analytics.orders_financial: create table SEQURA_DEV.dbt_maximerosa_raw_data.orders_financial (order_id integer,shopper_id integer,order_date date,product_id integer,merchant_id integer,is_in_default boolean,days_unbalanced integer,current_order_value integer,overdue_principal integer,overdue_fees float8)
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.orders_financial"} */
+[0m20:10:44.229969 [debug] [Thread-7 (]: On seed.sequra_analytics.merchants: BEGIN
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.merchants"} */
+[0m20:10:44.230552 [debug] [Thread-9 (]: On seed.sequra_analytics.orders_merchant: BEGIN
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.orders_merchant"} */
+[0m20:10:44.230832 [debug] [Thread-8 (]: Opening a new connection, currently in state closed
+[0m20:10:44.231132 [debug] [Thread-7 (]: Opening a new connection, currently in state closed
+[0m20:10:44.231999 [debug] [Thread-9 (]: Opening a new connection, currently in state init
+[0m20:10:46.743527 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 2.512 seconds
+[0m20:10:46.744312 [debug] [Thread-7 (]: Using snowflake connection "seed.sequra_analytics.merchants"
+[0m20:10:46.744627 [debug] [Thread-7 (]: On seed.sequra_analytics.merchants: truncate table "SEQURA_DEV"."DBT_MAXIMEROSA_RAW_DATA"."MERCHANTS"
+  
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.merchants"} */;
+[0m20:10:46.832260 [debug] [Thread-9 (]: SQL status: SUCCESS 1 in 2.600 seconds
+[0m20:10:46.832811 [debug] [Thread-9 (]: Using snowflake connection "seed.sequra_analytics.orders_merchant"
+[0m20:10:46.833124 [debug] [Thread-9 (]: On seed.sequra_analytics.orders_merchant: truncate table "SEQURA_DEV"."DBT_MAXIMEROSA_RAW_DATA"."ORDERS_MERCHANT"
+  
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.orders_merchant"} */;
+[0m20:10:47.247800 [debug] [Thread-9 (]: SQL status: SUCCESS 1 in 0.414 seconds
+[0m20:10:47.248617 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.504 seconds
+[0m20:10:47.249449 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 3.022 seconds
+[0m20:10:47.250104 [debug] [Thread-8 (]: SQL status: SUCCESS 1 in 3.019 seconds
+[0m20:10:47.250553 [debug] [Thread-9 (]: Using snowflake connection "seed.sequra_analytics.orders_merchant"
+[0m20:10:47.250971 [debug] [Thread-7 (]: Using snowflake connection "seed.sequra_analytics.merchants"
+[0m20:10:47.261096 [debug] [Thread-6 (]: Using snowflake connection "seed.sequra_analytics.dim_shoppers"
+[0m20:10:47.262499 [debug] [Thread-8 (]: Using snowflake connection "seed.sequra_analytics.orders_financial"
+[0m20:10:47.262754 [debug] [Thread-9 (]: On seed.sequra_analytics.orders_merchant: COMMIT
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.orders_merchant"} */
+[0m20:10:47.262990 [debug] [Thread-7 (]: On seed.sequra_analytics.merchants: COMMIT
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.merchants"} */
+[0m20:10:47.263205 [debug] [Thread-6 (]: On seed.sequra_analytics.dim_shoppers: BEGIN
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.dim_shoppers"} */
+[0m20:10:47.263403 [debug] [Thread-8 (]: On seed.sequra_analytics.orders_financial: BEGIN
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.orders_financial"} */
+[0m20:10:47.361225 [debug] [Thread-8 (]: SQL status: SUCCESS 1 in 0.097 seconds
+[0m20:10:47.362152 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.098 seconds
+[0m20:10:47.364199 [debug] [Thread-8 (]: Using snowflake connection "seed.sequra_analytics.orders_financial"
+[0m20:10:47.365099 [debug] [Thread-6 (]: Using snowflake connection "seed.sequra_analytics.dim_shoppers"
+[0m20:10:47.365671 [debug] [Thread-8 (]: On seed.sequra_analytics.orders_financial: insert into SEQURA_DEV.dbt_maximerosa_raw_data.orders_financial (order_id, shopper_id, order_date, product_id, merchant_id, is_in_default, days_unbalanced, current_order_value, overdue_principal, overdue_fees) values
+            (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s...
+[0m20:10:47.366156 [debug] [Thread-6 (]: On seed.sequra_analytics.dim_shoppers: insert into SEQURA_DEV.dbt_maximerosa_raw_data.dim_shoppers (shopper_id, age) values
+            (%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s)
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.dim_shoppers"} */...
+[0m20:10:47.498360 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.234 seconds
+[0m20:10:47.499613 [debug] [Thread-7 (]: Using snowflake connection "seed.sequra_analytics.merchants"
+[0m20:10:47.499802 [debug] [Thread-7 (]: On seed.sequra_analytics.merchants: BEGIN
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.merchants"} */
+[0m20:10:47.510844 [debug] [Thread-9 (]: SQL status: SUCCESS 1 in 0.247 seconds
+[0m20:10:47.511877 [debug] [Thread-9 (]: Using snowflake connection "seed.sequra_analytics.orders_merchant"
+[0m20:10:47.512054 [debug] [Thread-9 (]: On seed.sequra_analytics.orders_merchant: BEGIN
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.orders_merchant"} */
+[0m20:10:47.569484 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.069 seconds
+[0m20:10:47.569894 [debug] [Thread-7 (]: Using snowflake connection "seed.sequra_analytics.merchants"
+[0m20:10:47.570062 [debug] [Thread-7 (]: On seed.sequra_analytics.merchants: insert into SEQURA_DEV.dbt_maximerosa_raw_data.merchants (merchant_id, merchant_name) values
+            (%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s)
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.merchants"} */...
+[0m20:10:47.580507 [debug] [Thread-9 (]: SQL status: SUCCESS 1 in 0.068 seconds
+[0m20:10:47.581196 [debug] [Thread-9 (]: Using snowflake connection "seed.sequra_analytics.orders_merchant"
+[0m20:10:47.581405 [debug] [Thread-9 (]: On seed.sequra_analytics.orders_merchant: insert into SEQURA_DEV.dbt_maximerosa_raw_data.orders_merchant (order_id, shopper_id, merchant_id, order_date) values
+            (%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s)
+/* {"app": "dbt", "dbt_version":...
+[0m20:10:48.061572 [debug] [Thread-6 (]: SQL status: SUCCESS 9 in 0.694 seconds
+[0m20:10:48.062052 [debug] [Thread-8 (]: SQL status: SUCCESS 25 in 0.696 seconds
+[0m20:10:48.062303 [debug] [Thread-6 (]: Using snowflake connection "seed.sequra_analytics.dim_shoppers"
+[0m20:10:48.062623 [debug] [Thread-9 (]: SQL status: SUCCESS 25 in 0.481 seconds
+[0m20:10:48.062920 [debug] [Thread-7 (]: SQL status: SUCCESS 6 in 0.493 seconds
+[0m20:10:48.063164 [debug] [Thread-8 (]: Using snowflake connection "seed.sequra_analytics.orders_financial"
+[0m20:10:48.063384 [debug] [Thread-6 (]: On seed.sequra_analytics.dim_shoppers: COMMIT
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.dim_shoppers"} */
+[0m20:10:48.063598 [debug] [Thread-9 (]: Using snowflake connection "seed.sequra_analytics.orders_merchant"
+[0m20:10:48.063797 [debug] [Thread-7 (]: Using snowflake connection "seed.sequra_analytics.merchants"
+[0m20:10:48.063977 [debug] [Thread-8 (]: On seed.sequra_analytics.orders_financial: COMMIT
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.orders_financial"} */
+[0m20:10:48.064355 [debug] [Thread-9 (]: On seed.sequra_analytics.orders_merchant: COMMIT
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.orders_merchant"} */
+[0m20:10:48.064936 [debug] [Thread-7 (]: On seed.sequra_analytics.merchants: COMMIT
+/* {"app": "dbt", "dbt_version": "1.10.9", "profile_name": "sequra_analytics", "target_name": "dev", "node_id": "seed.sequra_analytics.merchants"} */
+[0m20:10:48.372853 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.308 seconds
+[0m20:10:48.379668 [debug] [Thread-6 (]: Writing runtime SQL for node "seed.sequra_analytics.dim_shoppers"
+[0m20:10:48.407824 [debug] [Thread-6 (]: On seed.sequra_analytics.dim_shoppers: Close
+[0m20:10:48.408670 [debug] [Thread-9 (]: SQL status: SUCCESS 1 in 0.343 seconds
+[0m20:10:48.409292 [debug] [Thread-9 (]: Writing runtime SQL for node "seed.sequra_analytics.orders_merchant"
+[0m20:10:48.412146 [debug] [Thread-9 (]: On seed.sequra_analytics.orders_merchant: Close
+[0m20:10:48.414259 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.348 seconds
+[0m20:10:48.414881 [debug] [Thread-7 (]: Writing runtime SQL for node "seed.sequra_analytics.merchants"
+[0m20:10:48.415622 [debug] [Thread-8 (]: SQL status: SUCCESS 1 in 0.350 seconds
+[0m20:10:48.416167 [debug] [Thread-8 (]: Writing runtime SQL for node "seed.sequra_analytics.orders_financial"
+[0m20:10:48.418078 [debug] [Thread-8 (]: On seed.sequra_analytics.orders_financial: Close
+[0m20:10:48.419357 [debug] [Thread-7 (]: On seed.sequra_analytics.merchants: Close
+[0m20:10:48.500563 [debug] [Thread-6 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f37d1520-4336-49fc-91ec-2a6ad90b50cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102674710>]}
+[0m20:10:48.501148 [info ] [Thread-6 (]: 1 of 4 OK loaded seed file dbt_maximerosa_raw_data.dim_shoppers ................ [[32mINSERT 9[0m in 4.32s]
+[0m20:10:48.501700 [debug] [Thread-6 (]: Finished running node seed.sequra_analytics.dim_shoppers
+[0m20:10:48.507622 [debug] [Thread-8 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f37d1520-4336-49fc-91ec-2a6ad90b50cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c9c4e30>]}
+[0m20:10:48.508331 [info ] [Thread-8 (]: 3 of 4 OK loaded seed file dbt_maximerosa_raw_data.orders_financial ............ [[32mINSERT 25[0m in 4.33s]
+[0m20:10:48.508887 [debug] [Thread-8 (]: Finished running node seed.sequra_analytics.orders_financial
+[0m20:10:48.529910 [debug] [Thread-7 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f37d1520-4336-49fc-91ec-2a6ad90b50cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c8c0b30>]}
+[0m20:10:48.530436 [info ] [Thread-7 (]: 2 of 4 OK loaded seed file dbt_maximerosa_raw_data.merchants ................... [[32mINSERT 6[0m in 4.36s]
+[0m20:10:48.530832 [debug] [Thread-7 (]: Finished running node seed.sequra_analytics.merchants
+[0m20:10:48.539015 [debug] [Thread-9 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f37d1520-4336-49fc-91ec-2a6ad90b50cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c8c21b0>]}
+[0m20:10:48.539494 [info ] [Thread-9 (]: 4 of 4 OK loaded seed file dbt_maximerosa_raw_data.orders_merchant ............. [[32mINSERT 25[0m in 4.36s]
+[0m20:10:48.539928 [debug] [Thread-9 (]: Finished running node seed.sequra_analytics.orders_merchant
+[0m20:10:48.541102 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:10:48.541386 [debug] [MainThread]: Connection 'seed.sequra_analytics.dim_shoppers' was properly closed.
+[0m20:10:48.541713 [debug] [MainThread]: Connection 'seed.sequra_analytics.merchants' was properly closed.
+[0m20:10:48.541906 [debug] [MainThread]: Connection 'seed.sequra_analytics.orders_financial' was properly closed.
+[0m20:10:48.542065 [debug] [MainThread]: Connection 'list_SEQURA_DEV_dbt_maximerosa_intermediate' was properly closed.
+[0m20:10:48.542217 [debug] [MainThread]: Connection 'seed.sequra_analytics.orders_merchant' was properly closed.
+[0m20:10:48.542413 [info ] [MainThread]: 
+[0m20:10:48.542616 [info ] [MainThread]: Finished running 4 seeds in 0 hours 0 minutes and 10.54 seconds (10.54s).
+[0m20:10:48.543305 [debug] [MainThread]: Command end result
+[0m20:10:48.563574 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/maximerosa/Downloads/SeQura-Test-Analytics-Engineer/sequra_analytics/target/manifest.json
+[0m20:10:48.566202 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/maximerosa/Downloads/SeQura-Test-Analytics-Engineer/sequra_analytics/target/semantic_manifest.json
+[0m20:10:48.570646 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/maximerosa/Downloads/SeQura-Test-Analytics-Engineer/sequra_analytics/target/run_results.json
+[0m20:10:48.570908 [info ] [MainThread]: 
+[0m20:10:48.571147 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m20:10:48.571322 [info ] [MainThread]: 
+[0m20:10:48.571501 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=4
+[0m20:10:48.575430 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": true, "command_wall_clock_time": 11.347358, "process_in_blocks": "0", "process_kernel_time": 0.380841, "process_mem_max_rss": "168361984", "process_out_blocks": "0", "process_user_time": 1.891727}
+[0m20:10:48.575809 [debug] [MainThread]: Command `dbt seed` succeeded at 20:10:48.575749 after 11.35 seconds
+[0m20:10:48.576046 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105f23800>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104fb6570>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1042f9b20>]}
+[0m20:10:48.576265 [debug] [MainThread]: Flushing usage events
+[0m20:10:49.060253 [debug] [MainThread]: An error was encountered while trying to flush usage events

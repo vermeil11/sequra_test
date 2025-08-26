@@ -30,6 +30,17 @@ models:
 
 seeds:
   sequra_analytics:
+    schema: raw_data
+    orders_merchant:
+      column_types:
+        order_id: integer
+        shopper_id: integer
+        merchant_id: integer
+        order_date: varchar
+      merchants:
+        column_types:
+         merchant_id: integer
+         merchant_name: varchar
     orders_financial:
       column_types:
         order_id: integer

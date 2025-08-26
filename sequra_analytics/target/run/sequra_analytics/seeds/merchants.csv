@@ -1,12 +1,10 @@
 
     
     
-    
-    create table SEQURA_DEV.dbt_maximerosa.merchants (merchant_id integer,merchant_name text)
-  ;
+    truncate table "SEQURA_DEV"."DBT_MAXIMEROSA_RAW_DATA"."MERCHANTS";
     -- dbt seed --
     
-            insert into SEQURA_DEV.dbt_maximerosa.merchants (merchant_id, merchant_name) values
+            insert into SEQURA_DEV.dbt_maximerosa_raw_data.merchants (merchant_id, merchant_name) values
             (%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s)
         
 

@@ -2,11 +2,11 @@
     
     
     
-    create table SEQURA_DEV.dbt_maximerosa.orders_financial (order_id integer,shopper_id integer,order_date date,product_id integer,merchant_id integer,is_in_default boolean,days_unbalanced integer,current_order_value integer,overdue_principal integer,overdue_fees float8)
+    create table SEQURA_DEV.dbt_maximerosa_raw_data.orders_financial (order_id integer,shopper_id integer,order_date date,product_id integer,merchant_id integer,is_in_default boolean,days_unbalanced integer,current_order_value integer,overdue_principal integer,overdue_fees float8)
   ;
     -- dbt seed --
     
-            insert into SEQURA_DEV.dbt_maximerosa.orders_financial (order_id, shopper_id, order_date, product_id, merchant_id, is_in_default, days_unbalanced, current_order_value, overdue_principal, overdue_fees) values
+            insert into SEQURA_DEV.dbt_maximerosa_raw_data.orders_financial (order_id, shopper_id, order_date, product_id, merchant_id, is_in_default, days_unbalanced, current_order_value, overdue_principal, overdue_fees) values
             (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
         
 

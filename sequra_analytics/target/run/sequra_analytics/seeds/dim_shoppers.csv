@@ -2,11 +2,11 @@
     
     
     
-    create table SEQURA_DEV.dbt_maximerosa.dim_shoppers (shopper_id integer,age integer)
+    create table SEQURA_DEV.dbt_maximerosa_raw_data.dim_shoppers (shopper_id integer,age integer)
   ;
     -- dbt seed --
     
-            insert into SEQURA_DEV.dbt_maximerosa.dim_shoppers (shopper_id, age) values
+            insert into SEQURA_DEV.dbt_maximerosa_raw_data.dim_shoppers (shopper_id, age) values
             (%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s)
         
 
