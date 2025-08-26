@@ -1,9 +1,7 @@
 
     
     
-    
-    create table SEQURA_DEV.dbt_maximerosa_raw_data.dim_shoppers (shopper_id integer,age integer)
-  ;
+    truncate table "SEQURA_DEV"."DBT_MAXIMEROSA_RAW_DATA"."DIM_SHOPPERS";
     -- dbt seed --
     
             insert into SEQURA_DEV.dbt_maximerosa_raw_data.dim_shoppers (shopper_id, age) values
