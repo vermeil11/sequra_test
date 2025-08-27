@@ -1,0 +1,287 @@
+name: dbt CI/CD Pipeline
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+# Environment variables
+env:
+  DBT_PROFILES_DIR: ./ci
+  SNOWFLAKE_ACCOUNT: lqgtqud-rv87386
+  SNOWFLAKE_DATABASE: SEQURA_DEV
+  SNOWFLAKE_WAREHOUSE: COMPUTE_WH
+  SNOWFLAKE_ROLE: ACCOUNTADMIN
+
+jobs:
+  validate:
+    name: Validate dbt Project
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install dbt-core dbt-snowflake sqlfluff
+          dbt --version
+      
+      - name: Create profiles
+        run: |
+          mkdir -p ci
+          cat > ci/profiles.yml << EOF
+          sequra_analytics:
+            outputs:
+              ci:
+                type: snowflake
+                account: ${{ env.SNOWFLAKE_ACCOUNT }}
+                user: ${{ secrets.SNOWFLAKE_USER }}
+                password: ${{ secrets.SNOWFLAKE_PASSWORD }}
+                role: ${{ env.SNOWFLAKE_ROLE }}
+                database: ${{ env.SNOWFLAKE_DATABASE }}
+                warehouse: ${{ env.SNOWFLAKE_WAREHOUSE }}
+                schema: ci_${{ github.run_id }}
+                threads: 4
+            target: ci
+          EOF
+      
+      - name: Debug connection
+        run: dbt debug --target ci
+      
+      - name: Install dbt dependencies
+        run: dbt deps
+      
+      - name: Compile dbt models
+        run: dbt compile --target ci
+      
+      - name: Lint SQL files
+        run: |
+          sqlfluff lint models/ \
+            --dialect snowflake \
+            --exclude-rules L031,L032 \
+            --ignore parsing
+        continue-on-error: true
+      
+      - name: Generate dbt documentation
+        run: dbt docs generate --target ci
+      
+      - name: Upload documentation
+        uses: actions/upload-artifact@v3
+        with:
+          name: dbt-docs
+          path: target/
+
+  test:
+    name: Test dbt Models
+    runs-on: ubuntu-latest
+    needs: validate  # Only run if validation passes
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install dbt-core dbt-snowflake
+          dbt --version
+      
+      - name: Create profiles
+        run: |
+          mkdir -p ci
+          cat > ci/profiles.yml << EOF
+          sequra_analytics:
+            outputs:
+              ci:
+                type: snowflake
+                account: ${{ env.SNOWFLAKE_ACCOUNT }}
+                user: ${{ secrets.SNOWFLAKE_USER }}
+                password: ${{ secrets.SNOWFLAKE_PASSWORD }}
+                role: ${{ env.SNOWFLAKE_ROLE }}
+                database: ${{ env.SNOWFLAKE_DATABASE }}
+                warehouse: ${{ env.SNOWFLAKE_WAREHOUSE }}
+                schema: ci_${{ github.run_id }}
+                threads: 4
+            target: ci
+          EOF
+      
+      - name: Install dbt dependencies
+        run: dbt deps
+      
+      - name: Create CI schema
+        run: |
+          dbt run-operation create_ci_schema --vars '{schema_name: ci_${{ github.run_id }}}'
+        continue-on-error: true
+      
+      - name: Load seed data
+        run: dbt seed --target ci --full-refresh
+      
+      - name: Run staging models
+        run: dbt run --select staging.* --target ci
+      
+      - name: Run intermediate models
+        run: dbt run --select intermediate.* --target ci
+      
+      - name: Run mart models
+        run: dbt run --select marts.* --target ci
+      
+      - name: Test all models
+        run: dbt test --target ci
+      
+      - name: Run specific tests for recurrence
+        run: |
+          echo "Testing recurrence calculation..."
+          dbt test --select shopper_recurrence_rate --target ci
+      
+      - name: Cleanup CI schema
+        if: always()  # Run even if tests fail
+        run: |
+          dbt run-operation drop_ci_schema --vars '{schema_name: ci_${{ github.run_id }}}'
+        continue-on-error: true
+
+  test-recurrence:
+    name: Test Recurrence Calculation
+    runs-on: ubuntu-latest
+    needs: validate
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install dbt-core dbt-snowflake pandas
+      
+      - name: Create profiles
+        run: |
+          mkdir -p ci
+          cat > ci/profiles.yml << EOF
+          sequra_analytics:
+            outputs:
+              ci:
+                type: snowflake
+                account: ${{ env.SNOWFLAKE_ACCOUNT }}
+                user: ${{ secrets.SNOWFLAKE_USER }}
+                password: ${{ secrets.SNOWFLAKE_PASSWORD }}
+                role: ${{ env.SNOWFLAKE_ROLE }}
+                database: ${{ env.SNOWFLAKE_DATABASE }}
+                warehouse: ${{ env.SNOWFLAKE_WAREHOUSE }}
+                schema: ci_recurrence_${{ github.run_id }}
+                threads: 4
+            target: ci
+          EOF
+      
+      - name: Install dbt dependencies
+        run: dbt deps
+      
+      - name: Run recurrence models
+        run: |
+          dbt seed --select orders_merchant merchants --target ci
+          dbt run --select +shopper_recurrence_rate --target ci
+      
+      - name: Validate recurrence output
+        run: |
+          python << EOF
+          import subprocess
+          import json
+          
+          # Run dbt query to get results
+          result = subprocess.run([
+              'dbt', 'run-operation', 'test_recurrence_values',
+              '--vars', '{schema_name: ci_recurrence_${{ github.run_id }}}'
+          ], capture_output=True, text=True)
+          
+          print("Recurrence validation completed")
+          print(result.stdout)
+          
+          if result.returncode != 0:
+              print("ERROR:", result.stderr)
+              exit(1)
+          EOF
+      
+      - name: Cleanup
+        if: always()
+        run: |
+          dbt run-operation drop_ci_schema --vars '{schema_name: ci_recurrence_${{ github.run_id }}}'
+        continue-on-error: true
+
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [test, test-recurrence]
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: production
+      url: https://app.snowflake.com
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install dbt-core dbt-snowflake
+      
+      - name: Create production profiles
+        run: |
+          mkdir -p ci
+          cat > ci/profiles.yml << EOF
+          sequra_analytics:
+            outputs:
+              prod:
+                type: snowflake
+                account: ${{ env.SNOWFLAKE_ACCOUNT }}
+                user: ${{ secrets.SNOWFLAKE_USER }}
+                password: ${{ secrets.SNOWFLAKE_PASSWORD }}
+                role: ${{ env.SNOWFLAKE_ROLE }}
+                database: SEQURA_PROD
+                warehouse: ${{ env.SNOWFLAKE_WAREHOUSE }}
+                schema: marts
+                threads: 8
+            target: prod
+          EOF
+      
+      - name: Install dbt dependencies
+        run: dbt deps
+      
+      - name: Run production deployment
+        run: |
+          echo "Deploying to production..."
+          dbt run --target prod
+          dbt test --target prod --severity error
+      
+      - name: Generate production docs
+        run: dbt docs generate --target prod
+      
+      - name: Notify deployment
+        run: |
+          echo "✅ Successfully deployed to production!"
+          echo "Deployed commit: ${{ github.sha }}"
+          echo "Deployed by: ${{ github.actor }}"
