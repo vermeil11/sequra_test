@@ -8,7 +8,6 @@ create or replace transient table SEQURA_DEV.dbt_maximerosa_marts.default_ratio_
     
     as (
 
--- Now we properly use the intermediate model!
 with base_data as (
     select * from SEQURA_DEV.dbt_maximerosa_intermediate.int_orders_with_defaults
     where is_in_default = true  -- Only defaults for this analysis
@@ -68,7 +67,6 @@ expanded_periods as (
     where days_unbalanced > 90
 )
 
--- Final output with exact columns requested
 select distinct
     shopper_age,
     month_year_order,

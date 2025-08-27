@@ -13,7 +13,7 @@ with source_data as (
         shopper_id,
         merchant_id,
         order_date as order_date_raw,
-        -- Parse the date format (d/m/yy or dd/mm/yy)
+        -- Parse the date format (d/m/yy or dd/mm/yy) -> handles both "9/9/22" and "09/09/22" formats
         case 
             when split_part(order_date, '/', 3) = '22' then '2022'
             when split_part(order_date, '/', 3) = '23' then '2023'
